@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../LanguageContext';
 import { brandsContentEn } from '../content/brands.en';
 import { brandsContentKo } from '../content/brands.ko';
-import { containerVariants, itemVariants } from '../utils/animations';
 import { highlightBrandName } from '../utils/text';
 import { useFacebookPixel } from '../hooks/useFacebookPixel';
 import type { BrandPartner } from '../types';
@@ -36,51 +35,80 @@ const Brands: React.FC<BrandsProps> = ({ navigateTo }) => {
   const { language } = useLanguage();
   const content = language === 'ko' ? brandsContentKo : brandsContentEn;
   const marqueeDurationSec = 80;
-  
+  const companyMarqueeDurationSec = 45;
+
   // Facebook Pixel for conversion tracking
   const { events } = useFacebookPixel();
 
-  // 퍼센트 기반 이동은 뷰포트/갭/이미지 로딩에 따라 루프가 끊겨 보일 수 있어,
-  // 실제 트랙 폭(px)을 측정해서 정확히 1사이클만큼 이동하는 방식으로 고정.
-  const firstRowTrackRef = useRef<HTMLDivElement | null>(null);
-  const secondRowTrackRef = useRef<HTMLDivElement | null>(null);
-  const [firstCyclePx, setFirstCyclePx] = useState<number>(0);
-  const [secondCyclePx, setSecondCyclePx] = useState<number>(0);
-  
   // LA Partner logos - 40개 중 3개 제외 (풀무원, 시디즈, 농심)
-  const excludedLogos = [21, 23, 29]; // 농심(21), 풀무원(23), 시디즈(29)
+  const excludedLogos = [21, 23, 29];
   const laPartners: BrandPartner[] = Array.from({ length: 40 }, (_, i) => ({
     logo: `/BrandLogo/la-popup-logo${String(i + 1).padStart(2, '0')}.png`,
     name: `Brand ${i + 1}`
   })).filter((_, i) => !excludedLogos.includes(i + 1));
-  
-  // 첫 번째 줄과 두 번째 줄 분배
+
+  // KOLLAB KOREA company logos
+  const companyLogos: BrandPartner[] = [
+    { logo: '/assets/brands/company/0062_로고.png', name: '0062' },
+    { logo: '/assets/brands/company/더마룹_OGET-LOGO.png', name: 'OGET' },
+    { logo: '/assets/brands/company/마이쇼퍼_로고투명.png', name: '마이쇼퍼' },
+    { logo: '/assets/brands/company/메리고라운드_오드실크_로고.png', name: '오드실크' },
+    { logo: '/assets/brands/company/미미스컴퍼니_Logo.png', name: '미미스컴퍼니' },
+    { logo: '/assets/brands/company/채널브릿지_로고.png', name: '채널브릿지' },
+    { logo: '/assets/brands/company/그라스마티네-로고.png', name: '그라스마티네' },
+    { logo: '/assets/brands/company/깜빡_logo.png', name: '깜빡' },
+    { logo: '/assets/brands/company/더글리_원형로고.png', name: '더글리' },
+    { logo: '/assets/brands/company/더포춘_픽셀퓨어-로고(말풍선).png', name: '픽셀퓨어' },
+    { logo: '/assets/brands/company/웰비즈_로고(최종본).png', name: '웰비즈' },
+    { logo: '/assets/brands/company/로고PNG_넥스텝_포뉴레브.png', name: '포뉴레브' },
+    { logo: '/assets/brands/company/[팔색미인]로고.png', name: '팔색미인' },
+    { logo: '/assets/brands/company/BTS-l-STONEHENgE-LOGO.png', name: 'STONEHENGE' },
+    { logo: '/assets/brands/company/코리아나_로고.png', name: '코리아나' },
+    { logo: '/assets/brands/company/muzmak_logo_01.png', name: 'muzmak' },
+    { logo: '/assets/brands/company/olliwello_2.png', name: 'olliwello' },
+  ];
+
+  // LA 파트너 두 줄 분배
   const midPoint = Math.ceil(laPartners.length / 2);
   const firstRow = laPartners.slice(0, midPoint);
-  // 두 번째 줄을 역순으로 (우로 이동 효과)
   const secondRow = [...laPartners.slice(midPoint)].reverse();
-  
-  // 무한 루프를 위해 각 줄을 3번 복제 (완벽한 공백 제거)
   const firstRowDuplicated = [...firstRow, ...firstRow, ...firstRow];
   const secondRowDuplicated = [...secondRow, ...secondRow, ...secondRow];
+
+  // KOLLAB KOREA 두 줄 분배
+  const companyMidPoint = Math.ceil(companyLogos.length / 2);
+  const companyFirstRow = companyLogos.slice(0, companyMidPoint);
+  const companySecondRow = [...companyLogos.slice(companyMidPoint)].reverse();
+  const companyFirstRowDuplicated = [...companyFirstRow, ...companyFirstRow, ...companyFirstRow];
+  const companySecondRowDuplicated = [...companySecondRow, ...companySecondRow, ...companySecondRow];
+
+  // 실제 트랙 폭(px) 측정 refs
+  const firstRowTrackRef = useRef<HTMLDivElement | null>(null);
+  const secondRowTrackRef = useRef<HTMLDivElement | null>(null);
+  const companyFirstRowTrackRef = useRef<HTMLDivElement | null>(null);
+  const companySecondRowTrackRef = useRef<HTMLDivElement | null>(null);
+
+  const [firstCyclePx, setFirstCyclePx] = useState<number>(0);
+  const [secondCyclePx, setSecondCyclePx] = useState<number>(0);
+  const [companyFirstCyclePx, setCompanyFirstCyclePx] = useState<number>(0);
+  const [companySecondCyclePx, setCompanySecondCyclePx] = useState<number>(0);
 
   // 1사이클(px) 측정: 3번 복제했으므로 scrollWidth / 3
   useEffect(() => {
     const measure = () => {
-      const firstEl = firstRowTrackRef.current;
-      const secondEl = secondRowTrackRef.current;
-      if (firstEl) setFirstCyclePx(firstEl.scrollWidth / 3);
-      if (secondEl) setSecondCyclePx(secondEl.scrollWidth / 3);
+      if (firstRowTrackRef.current) setFirstCyclePx(firstRowTrackRef.current.scrollWidth / 3);
+      if (secondRowTrackRef.current) setSecondCyclePx(secondRowTrackRef.current.scrollWidth / 3);
+      if (companyFirstRowTrackRef.current) setCompanyFirstCyclePx(companyFirstRowTrackRef.current.scrollWidth / 3);
+      if (companySecondRowTrackRef.current) setCompanySecondCyclePx(companySecondRowTrackRef.current.scrollWidth / 3);
     };
 
-    // 이미지 로딩 이후 폭이 바뀔 수 있어 1회 지연 측정
     const t = window.setTimeout(measure, 0);
     window.addEventListener('resize', measure);
     return () => {
       window.clearTimeout(t);
       window.removeEventListener('resize', measure);
     };
-  }, [firstRowDuplicated.length, secondRowDuplicated.length]);
+  }, [firstRowDuplicated.length, secondRowDuplicated.length, companyFirstRowDuplicated.length, companySecondRowDuplicated.length]);
   
   
   return (
@@ -135,36 +163,82 @@ const Brands: React.FC<BrandsProps> = ({ navigateTo }) => {
         </motion.button>
       </motion.div>
 
-      {/* KOLLAB KOREA partners - Coming Soon Grid */}
+      {/* KOLLAB KOREA partners - 흐르는 로고 마키 */}
       <div>
-        {/* Grid Container with Text Overlay */}
-        <div className="relative">
-          {/* Grid as background */}
-          <motion.div 
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            className="grid grid-cols-4 md:grid-cols-8 gap-px bg-black/10 border border-black/10"
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8 }}
+          className={`mb-10 md:mb-12 text-center text-xl md:text-3xl font-semibold text-black ${
+            language === 'ko' ? 'tracking-[0.01em] break-keep' : 'tracking-[0.02em]'
+          }`}
+        >
+          {renderBrandNameBold(language === 'ko' ? 'KOLLAB KOREA 파트너사' : 'KOLLAB KOREA Partners')}
+        </motion.p>
+
+        {/* 첫 번째 줄: 좌 → 우 */}
+        <div className="relative overflow-hidden mb-2">
+          <motion.div
+            className="flex gap-2"
+            ref={companyFirstRowTrackRef}
+            animate={companyFirstCyclePx > 0 ? { x: [0, -companyFirstCyclePx] } : { x: 0 }}
+            transition={{
+              x: {
+                duration: companyMarqueeDurationSec,
+                repeat: Infinity,
+                repeatType: 'loop',
+                ease: 'linear',
+              },
+            }}
           >
-            {Array.from({ length: 8 }).map((_, i) => (
-              <motion.div
-                key={`korea-soon-${i}`}
-                variants={itemVariants}
-                className="aspect-square bg-[#EDEBE4] flex items-center justify-center relative"
+            {companyFirstRowDuplicated.map((item, index) => (
+              <div
+                key={`company-row1-${index}`}
+                className="flex-shrink-0 w-[120px] h-[120px] md:w-[145px] md:h-[145px] bg-white flex items-center justify-center"
               >
-                {/* Very subtle dashed border inside each cell */}
-                <div className="absolute inset-4 border border-dashed border-black/10" />
-              </motion.div>
+                <img
+                  src={item.logo}
+                  alt={item.name}
+                  className="w-full h-full object-contain p-5"
+                />
+              </div>
             ))}
           </motion.div>
-          
-          {/* Opening Soon text overlay */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <p className="text-2xl md:text-4xl font-extrabold text-black/40 tracking-tight uppercase text-center px-4">
-              Your Brand Here
-            </p>
-          </div>
+          <div className="absolute left-0 top-0 bottom-0 w-24 md:w-32 bg-gradient-to-r from-white to-transparent pointer-events-none z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 md:w-32 bg-gradient-to-l from-white to-transparent pointer-events-none z-10" />
+        </div>
+
+        {/* 두 번째 줄: 우 → 좌 */}
+        <div className="relative overflow-hidden">
+          <motion.div
+            className="flex gap-2"
+            ref={companySecondRowTrackRef}
+            animate={companySecondCyclePx > 0 ? { x: [-companySecondCyclePx, 0] } : { x: 0 }}
+            transition={{
+              x: {
+                duration: companyMarqueeDurationSec,
+                repeat: Infinity,
+                repeatType: 'loop',
+                ease: 'linear',
+              },
+            }}
+          >
+            {companySecondRowDuplicated.map((item, index) => (
+              <div
+                key={`company-row2-${index}`}
+                className="flex-shrink-0 w-[120px] h-[120px] md:w-[145px] md:h-[145px] bg-white flex items-center justify-center"
+              >
+                <img
+                  src={item.logo}
+                  alt={item.name}
+                  className="w-full h-full object-contain p-5"
+                />
+              </div>
+            ))}
+          </motion.div>
+          <div className="absolute left-0 top-0 bottom-0 w-24 md:w-32 bg-gradient-to-r from-white to-transparent pointer-events-none z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 md:w-32 bg-gradient-to-l from-white to-transparent pointer-events-none z-10" />
         </div>
       </div>
 

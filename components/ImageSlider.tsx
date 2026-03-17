@@ -17,20 +17,28 @@ interface ImageSliderProps {
  * 모바일: portrait, PC: landscape
  */
 
-const LA_POPUP_LANDSCAPE = [
-  '/assets/photos/la-popup/landscape/kollab-la-popup-landscape-01.jpeg',
-  '/assets/photos/la-popup/landscape/kollab-la-popup-landscape-02.jpeg',
-  '/assets/photos/la-popup/landscape/kollab-la-popup-landscape-03.jpeg',
-  '/assets/photos/la-popup/landscape/kollab-la-popup-landscape-04.jpeg',
-  '/assets/photos/la-popup/landscape/kollab-la-popup-landscape-05.jpeg',
-  '/assets/photos/la-popup/landscape/kollab-la-popup-landscape-06.jpeg',
-  '/assets/photos/la-popup/landscape/kollab-la-popup-landscape-07.jpeg',
-  '/assets/photos/la-popup/landscape/kollab-la-popup-landscape-08.jpeg',
+const KR_POPUP_IMAGES = [
+  '/assets/photos/kr-popup/optimized/WHK06093_re2.jpg',
+  '/assets/photos/kr-popup/optimized/WHK06122_re.jpg',
+  '/assets/photos/kr-popup/optimized/WHK06128_re.jpg',
+  '/assets/photos/kr-popup/optimized/WHK06131_re.jpg',
+  '/assets/photos/kr-popup/optimized/WHK06159_re.jpg',
+  '/assets/photos/kr-popup/optimized/WHK06186_re.jpg',
+  '/assets/photos/kr-popup/optimized/WHK06467_re.jpg',
+  '/assets/photos/kr-popup/optimized/WHK06486_re.jpg',
+  '/assets/photos/kr-popup/optimized/WHK06507_re.jpg',
+  '/assets/photos/kr-popup/optimized/WHK06520_re.jpg',
+  '/assets/photos/kr-popup/optimized/WHK06542_re.jpg',
+  '/assets/photos/kr-popup/optimized/WHK06612_re.jpg',
+  '/assets/photos/kr-popup/optimized/WHK06627_re.jpg',
+  '/assets/photos/kr-popup/optimized/WHK06631_re.jpg',
+  '/assets/photos/kr-popup/optimized/WHK06675_re.jpg',
+  '/assets/photos/kr-popup/optimized/WHK06685_re.jpg',
 ];
 
 const ImageSlider: React.FC<ImageSliderProps> = ({ triggerMarkerRef }) => {
   // 모바일도 데스크탑과 동일하게 landscape 슬라이드를 사용
-  const images = useMemo(() => LA_POPUP_LANDSCAPE, []);
+  const images = useMemo(() => KR_POPUP_IMAGES, []);
   
   // 이미지를 20번 복제하여 검정 배경이 절대 안 보이도록 완벽한 무한 루프
   const duplicatedImages = useMemo(() => Array(20).fill(images).flat(), [images]);
@@ -58,7 +66,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ triggerMarkerRef }) => {
             x: {
               repeat: Infinity,
               repeatType: 'loop',
-              duration: 800, // 더 빠르게(기존 1050초 대비 약 24% faster)
+              duration: 2200,
               ease: 'linear',
             },
           }}
@@ -70,7 +78,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ triggerMarkerRef }) => {
             >
               <img
                 src={src}
-                alt={`KOLLAB LA popup moment ${(index % images.length) + 1}`}
+                alt={`KOLLAB KR popup moment ${(index % images.length) + 1}`}
                 className="w-auto h-full rounded-2xl object-cover bg-transparent"
                 loading={index < 6 ? 'eager' : 'lazy'}
                 decoding="async"

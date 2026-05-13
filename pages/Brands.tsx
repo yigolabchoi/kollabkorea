@@ -66,6 +66,23 @@ const Brands: React.FC<BrandsProps> = ({ navigateTo }) => {
     { logo: '/assets/brands/company/코리아나_로고.png', name: '코리아나' },
     { logo: '/assets/brands/company/muzmak_logo_01.png', name: 'muzmak' },
     { logo: '/assets/brands/company/olliwello_2.png', name: 'olliwello' },
+    { logo: '/assets/brands/company/(1).png', name: 'Brand 1' },
+    { logo: '/assets/brands/company/(2).png', name: 'Brand 2' },
+    { logo: '/assets/brands/company/(3).png', name: 'Brand 3' },
+    { logo: '/assets/brands/company/(4).png', name: 'Brand 4' },
+    { logo: '/assets/brands/company/(5).png', name: 'Brand 5' },
+    { logo: '/assets/brands/company/(6).png', name: 'Brand 6' },
+    { logo: '/assets/brands/company/(7).png', name: 'Brand 7' },
+    { logo: '/assets/brands/company/(8).png', name: 'Brand 8' },
+    { logo: '/assets/brands/company/(9).png', name: 'Brand 9' },
+    { logo: '/assets/brands/company/(10).png', name: 'Brand 10' },
+    { logo: '/assets/brands/company/(11).png', name: 'Brand 11' },
+    { logo: '/assets/brands/company/(12).png', name: 'Brand 12' },
+    { logo: '/assets/brands/company/(13).png', name: 'Brand 13' },
+    { logo: '/assets/brands/company/(14).png', name: 'Brand 14' },
+    { logo: '/assets/brands/company/(15).png', name: 'Brand 15' },
+    { logo: '/assets/brands/company/(16).png', name: 'Brand 16' },
+    { logo: '/assets/brands/company/(17).png', name: 'Brand 17' },
   ];
 
   // LA 파트너 두 줄 분배

@@ -14,11 +14,16 @@ import Brands from './pages/Brands';
 import Space from './pages/Space';
 import Contact from './pages/Contact';
 import FAQ from './pages/FAQ';
+import ComingSoon from './pages/ComingSoon';
 import LanguageToggle from './components/LanguageToggle';
 import { getPathFromUrl, navigateToPage } from './utils/navigation';
 import { scrollToTop, getScrollableParent } from './utils/scroll';
 import { useFacebookPixel } from './hooks/useFacebookPixel';
 import type { PageId } from './types';
+
+// 홈페이지 리뉴얼 작업 중 임시로 전체 사이트를 Coming Soon 스플래시로 대체.
+// 리뉴얼이 끝나면 이 플래그를 false로 되돌리면 기존 사이트가 그대로 복귀됨.
+const MAINTENANCE_MODE = true;
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<PageId>(getPathFromUrl());
@@ -105,10 +110,14 @@ const App: React.FC = () => {
     }
   };
 
+  if (MAINTENANCE_MODE) {
+    return <ComingSoon />;
+  }
+
   return (
     <div style={{ display: 'contents' }}>
       <LanguageToggle />
-      
+
       <Navbar currentPage={currentPage} onNavigate={navigateTo} isVisible={showNavbar} />
       {showNavbar && (
         currentPage === 'home' ? (

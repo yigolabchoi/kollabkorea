@@ -10,7 +10,13 @@ import { Menu, X } from 'lucide-react';
 import { lockBodyScroll, unlockBodyScroll } from '../utils/scroll';
 import type { NavbarProps } from '../types';
 
-const SECTIONS = ['ABOUT', 'PLATFORM', 'BRANDS', 'SPACE', 'CONTACT', 'FAQ'] as const;
+const SECTIONS = [
+  { id: 'ABOUT', label: 'ABOUT' },
+  { id: 'PLATFORM', label: 'SERVICES' },
+  { id: 'SPACE', label: 'PROJECTS' },
+  { id: 'BRANDS', label: 'PARTNERS' },
+  { id: 'CONTACT', label: 'CONTACT' },
+] as const;
 
 const MOBILE_MENU_LIST_VARIANTS = {
   hidden: { opacity: 0, y: 12 },
@@ -183,15 +189,15 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, isVisible }) =
           
           <div className="hidden lg:flex gap-10 text-base font-extrabold tracking-[0.22em] uppercase text-black">
             {SECTIONS.map((item) => (
-              <button 
-                key={item} 
-                onClick={() => handleNav(item)}
+              <button
+                key={item.id}
+                onClick={() => handleNav(item.id)}
                 className={`transition-all bg-transparent border-none cursor-pointer hover:opacity-50 relative group ${
-                  currentPage === item.toLowerCase() ? 'text-black' : 'text-black/60'
+                  currentPage === item.id.toLowerCase() ? 'text-black' : 'text-black/60'
                 }`}
               >
-                {item}
-                <span className={`absolute -bottom-2 left-0 w-full h-px bg-kollab-red transform origin-left transition-transform duration-300 ${currentPage === item.toLowerCase() ? 'scale-x-100' : 'scale-x-0'}`}></span>
+                {item.label}
+                <span className={`absolute -bottom-2 left-0 w-full h-px bg-kollab-red transform origin-left transition-transform duration-300 ${currentPage === item.id.toLowerCase() ? 'scale-x-100' : 'scale-x-0'}`}></span>
               </button>
             ))}
           </div>
@@ -248,16 +254,16 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, isVisible }) =
             >
               {SECTIONS.map((item) => (
                 <motion.button
-                  key={item}
+                  key={item.id}
                   variants={MOBILE_MENU_ITEM_VARIANTS}
-                  onClick={() => handleNav(item)}
+                  onClick={() => handleNav(item.id)}
                   className={`text-4xl font-extrabold uppercase tracking-tight touch-manipulation py-2 px-8 transition-all active:scale-95 ${
-                    currentPage === item.toLowerCase() 
-                      ? 'text-kollab-red' 
+                    currentPage === item.id.toLowerCase()
+                      ? 'text-kollab-red'
                       : 'text-black active:text-kollab-red'
                   }`}
                   >
-                    {item}
+                    {item.label}
                 </motion.button>
                 ))}
 

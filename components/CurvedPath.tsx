@@ -25,7 +25,7 @@ const CurvedPath: React.FC = () => {
     return { x, y };
   };
 
-  const POINT_T = [0, 0.25, 0.5, 0.75, 1] as const;
+  const POINT_T = [0, 0.2, 0.4, 0.6, 0.8, 1] as const;
   const LINE_D = `M ${P0.x},${P0.y} Q ${P1.x},${P1.y} ${P2.x},${P2.y}`;
 
   return (

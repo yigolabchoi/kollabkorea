@@ -2,38 +2,44 @@ import type { AboutContent } from './about.en';
 
 export const aboutContentKo: AboutContent = {
   pageLabel: 'ABOUT',
-  structureSection: {
-    title: 'KOLLAB KOREA는\n브랜드, 인플루언서, 소비자, 디스트리뷰터, 리테일을\n하나의 구조로 연결하는 글로벌 런치 플랫폼입니다.',
-    leftNode: { title: 'KOLLAB', subtitle: 'KOREA\n성수' },
-    rightNode: { title: 'KOLLAB', subtitle: 'Downtown\nLA' },
-    lanes: [
-      { text: '브랜드 전입 | 월 단위 합리적 비용 & 제품만 제공' },
-      { text: 'KOLLAB 리테일 플랫폼 | 마케팅 에이전시 기반 온·오프라인 통합 실행 구조' },
-      { text: '소비자 | 오프라인 체험 · 구매 전환 · 브랜드 인지 형성' },
-      { text: '인플루언서 | 자발적 방문 · 콘텐츠 생성 · 소셜 확산' },
-      { text: '데이터 및 검증 | 판매 데이터 · 콘텐츠 성과 · 소비자 반응' },
-      { text: '유통업체 연결 & 메이저 리테일 입점 기회 | 한국 & 미국 동시 검증 및 확장' }
+  introSection: {
+    label: 'KESTA 소개',
+    paragraphs: [
+      'KESTA는 대한민국의 우수한 브랜드를 발굴하고, 오프라인 리테일, 팝업스토어, 마케팅, 글로벌 유통을 연결하는 브랜드 플랫폼입니다.',
+      '단순히 공간을 운영하는 것이 아니라, 브랜드가 소비자와 만나고, 시장을 검증하며, 국내를 넘어 글로벌 시장까지 성장할 수 있도록 함께합니다.'
+    ]
+  },
+  visionSection: {
+    label: 'OUR VISION',
+    headline: ['Beyond Retail.', 'Building Global Brand Opportunities.'],
+    paragraphs: [
+      '우리는 제품을 판매하는 공간을 만드는 것이 아니라, 브랜드가 새로운 시장과 소비자를 만나는 기회를 만듭니다.',
+      'KESTA는 브랜드의 성장 파트너로서 대한민국 브랜드의 글로벌 진출을 함께 만들어갑니다.'
+    ]
+  },
+  whatWeDo: {
+    label: 'WHAT WE DO',
+    items: [
+      { title: 'POP-UP STORE', desc: '브랜드 경험을 극대화하는 팝업 프로젝트 운영' },
+      { title: 'RETAIL', desc: '백화점 및 오프라인 리테일 유통 운영' },
+      { title: 'MARKETING', desc: '콘텐츠, SNS, 인플루언서, 라이브커머스를 통한 브랜드 마케팅' },
+      { title: 'GLOBAL DISTRIBUTION', desc: '해외 유통 및 글로벌 시장 진출 지원' },
+      { title: 'TIKTOK SHOP', desc: '라이브커머스 및 글로벌 커머스 운영' },
+      { title: 'BRAND CONSULTING', desc: '브랜드 런칭 및 성장 전략 컨설팅' }
+    ]
+  },
+  whyKesta: {
+    label: 'WHY KESTA',
+    items: [
+      { title: 'Curated Brand Selection', desc: '엄선된 브랜드 큐레이션' },
+      { title: 'Proven Retail Experience', desc: '실전 중심의 오프라인 운영 경험' },
+      { title: 'Global Expansion', desc: '국내를 넘어 해외 시장까지 연결' },
+      { title: 'Marketing & Commerce', desc: '마케팅과 판매를 함께 설계' }
     ]
   },
   readyBanner: {
     title: 'READY TO GO\nGLOBAL?',
-    line: 'KOLLAB KOREA와 함께 당신의 브랜드를 알리세요.'
-  },
-  topPrelude: {
-    label: 'ABOUT',
-    introTitle: 'KOLLAB KOREA는',
-    introLines: [
-      '한국의 뷰티, 패션, 라이프, F&B, 굿즈 등 브랜드를 선별 · 운영하고',
-      '검증된 브랜드의 성공적인 미국 진출로 연결하는 역할을 합니다.',
-      '우리는 브랜드를 선별하고, 공간을 합리적으로 운영하며',
-      '시장을 넘나드는 오프라인 성장 기회를 만듭니다.',
-      '한국에서 시작해, 세계로 이어지는 오프라인 여정을 함께 하겠습니다.'
-    ],
-    bigTitle: 'KOLLAB KOREA는 브랜드, 인플루언서소비자, 디스트리뷰터, 리테일을 하나의 구조로 연결하는 글로벌 런치 플랫폼',
-    diagram: {
-      src: '/assets/photos/shoots/about-diagram.png',
-      alt: 'KOLLAB Korea 플랫폼 구조 다이어그램'
-    }
+    line: 'Kesta와 함께 당신의 브랜드를 알리세요.'
   },
   hero: {
     title: 'Born in Los Angeles.\nOperated in Korea.',
@@ -41,10 +47,10 @@ export const aboutContentKo: AboutContent = {
   },
   gallery: {
     images: [
-      { src: '/assets/photos/shoots/design_guide02.png', alt: 'KOLLAB LA reference 01' },
-      { src: '/assets/photos/shoots/design_guide03.png', alt: 'KOLLAB LA reference 02' },
-      { src: '/assets/images/hero/kollab-hero-bg-01.png', alt: 'KOLLAB reference 03' },
-      { src: '/assets/images/hero/kollab-hero-bg-02.png', alt: 'KOLLAB reference 04' }
+      { src: '/assets/photos/shoots/design_guide02.png', alt: 'Kesta LA reference 01' },
+      { src: '/assets/photos/shoots/design_guide03.png', alt: 'Kesta LA reference 02' },
+      { src: '/assets/images/hero/kollab-hero-bg-01.png', alt: 'Kesta reference 03' },
+      { src: '/assets/images/hero/kollab-hero-bg-02.png', alt: 'Kesta reference 04' }
     ]
   },
   sections: [
@@ -64,12 +70,12 @@ export const aboutContentKo: AboutContent = {
       blocks: [
         {
           kind: 'lead',
-          ko: 'KOLLAB은 LA에서 시작된\n경험 중심의 큐레이션 리테일 플랫폼입니다.'
+          ko: 'Kesta는 LA에서 시작된\n경험 중심의 큐레이션 리테일 플랫폼입니다.'
         },
         {
           kind: 'body',
           ko:
-            'KOLLAB KOREA는\n한국 시장에서 브랜드를 선별 · 운영하고\n검증된 브랜드를 미국 팝업 기회로 연결하는 역할을 합니다.'
+            'Kesta는\n한국 시장에서 브랜드를 선별 · 운영하고\n검증된 브랜드를 미국 팝업 기회로 연결하는 역할을 합니다.'
         }
       ]
     },
@@ -87,7 +93,7 @@ export const aboutContentKo: AboutContent = {
         {
           kind: 'body',
           ko:
-            'KOLLAB은 컨설팅이나 일회성 홍보를 제공하지 않습니다.\n실제 리테일 환경에서 브랜드가 검증 → 성장 → 확장할 수 있는 구조를 제공합니다.'
+            'Kesta는 컨설팅이나 일회성 홍보를 제공하지 않습니다.\n실제 리테일 환경에서 브랜드가 검증 → 성장 → 확장할 수 있는 구조를 제공합니다.'
         }
       ]
     },
@@ -110,7 +116,7 @@ export const aboutContentKo: AboutContent = {
       id: 'our-role',
       title: 'Our Role',
       blocks: [
-        { kind: 'quote', ko: 'KOLLAB은 에이전시가 아닙니다.\nKOLLAB은 플랫폼입니다.' },
+        { kind: 'quote', ko: 'Kesta는 에이전시가 아닙니다.\nKesta는 플랫폼입니다.' },
         {
           kind: 'body',
           ko:

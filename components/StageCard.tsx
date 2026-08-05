@@ -45,9 +45,10 @@ const StageCard: React.FC<StageCardProps> = ({ data }) => {
         <div className={`
           relative z-10 p-5 rounded-2xl bg-kollab-black shadow-2xl text-white
           border border-zinc-800 hover:border-kollab-red transition-colors duration-300
+          flex items-center justify-center
         `}>
-          <data.Icon size={28} strokeWidth={1.5} />
-          
+          <data.Icon size={28} strokeWidth={2.25} />
+
           {/* Subtle gloss effect */}
           <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/20 to-transparent opacity-50 pointer-events-none" />
         </div>
@@ -66,7 +67,7 @@ const StageCard: React.FC<StageCardProps> = ({ data }) => {
         <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-[1px] h-8 bg-gradient-to-b from-kollab-red/50 to-transparent -z-10" />
 
         {/* Title - Inter Black */}
-        <h3 className="text-lg md:text-xl font-black text-kollab-black leading-tight tracking-tight drop-shadow-sm whitespace-nowrap">
+        <h3 className="text-lg md:text-xl font-black text-kollab-black leading-tight tracking-tight drop-shadow-sm max-w-[9rem] md:max-w-[11rem] break-keep">
           {data.title}
         </h3>
         
@@ -79,11 +80,11 @@ const StageCard: React.FC<StageCardProps> = ({ data }) => {
         <div className="w-8 h-0.5 bg-kollab-black/10 my-1 group-hover:w-16 group-hover:bg-kollab-red transition-all duration-500" />
 
         {/* Description - Inter Semi-Bold */}
-        <ul className="space-y-1 mt-2">
+        <ul className="space-y-1 mt-2 max-w-[9rem] md:max-w-[11rem]">
           {data.description.map((item, idx) => (
             <li
               key={idx}
-              className={`text-xs md:text-sm font-semibold text-zinc-700/90 whitespace-nowrap break-keep ${
+              className={`text-xs md:text-sm font-semibold text-zinc-700/90 break-keep ${
                 hasKoreanText(item) ? 'tracking-[-0.01em]' : ''
               }`}
             >

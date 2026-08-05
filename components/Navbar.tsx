@@ -174,9 +174,9 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, isVisible }) =
               className="cursor-pointer flex items-center"
             onClick={() => handleNav('home')}
           >
-            <img 
-              src="/assets/brands/kollab_logo_korea_primary01.png" 
-              alt="KOLLAB KOREA" 
+            <img
+              src="/assets/brands/kesta_logo_red.png"
+              alt="Kesta"
               className="h-14 md:h-16 lg:h-18 w-auto object-contain"
             />
           </div>
@@ -222,9 +222,9 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, isVisible }) =
             <div className="absolute top-0 left-0 right-0 flex items-center justify-between px-6 py-10 bg-white border-b border-zinc-200">
               {/* 로고 */}
               <div className="cursor-pointer flex items-center" onClick={() => handleNav('home')}>
-                <img 
-                  src="/assets/brands/kollab_logo_korea_primary01.png" 
-                  alt="KOLLAB KOREA" 
+                <img
+                  src="/assets/brands/kesta_logo_red.png"
+                  alt="Kesta"
                   className="h-14 w-auto object-contain"
                 />
               </div>

@@ -48,83 +48,69 @@ export interface PlatformContent {
 export const platformContentEn: PlatformContent = {
   topPrelude: {
     label: 'PLATFORM',
-    introTitle: 'KOLLAB KOREA',
+    introTitle: 'Kesta',
     introLines: [
-      'KOLLAB KOREA curates and operates Korean beauty, fashion, lifestyle, F&B, and goods brands,',
+      'Kesta curates and operates Korean beauty, fashion, lifestyle, F&B, and goods brands,',
       'and connects validated brands to successful U.S. market entry through pop-up opportunities.',
       'We curate brands, operate spaces with efficiency,',
       'and create offline growth opportunities across markets.',
       'Starting in Korea, we move together toward the world.'
     ],
     bigTitle:
-      'KOLLAB KOREA is a global launch platform that connects brands, influencers, consumers, distributors, and retail into one structure.',
+      'Kesta is a global launch platform that connects brands, influencers, consumers, distributors, and retail into one structure.',
     diagram: {
       src: '/assets/photos/shoots/about-diagram.png',
-      alt: 'KOLLAB Korea cross-border platform structure diagram'
+      alt: 'Kesta Korea cross-border platform structure diagram'
     }
   },
   roadmap: [
     {
       id: 1,
-      title: 'Brand Activation',
-      subtitle: 'Brand Activation',
-      description: [
-        'Offline experience by zone',
-        'Product sales',
-        'Pop-up & influencer marketing',
-        'Sales data sharing'
-      ],
-      icon: 'Store',
+      title: 'POP-UP STORE',
+      subtitle: '',
+      description: ['Pop-up projects that maximize brand experience'],
+      icon: 'Tent',
       color: 'from-kollab-red to-red-600'
     },
     {
       id: 2,
-      title: 'Content Creation',
-      subtitle: 'Content Creation',
-      description: [
-        'Brand product content',
-        'Short-form reels',
-        'Real usage-based stories'
-      ],
-      icon: 'Video',
+      title: 'RETAIL',
+      subtitle: '',
+      description: ['Department store and offline retail distribution'],
+      icon: 'Store',
       color: 'from-zinc-700 to-kollab-dark'
     },
     {
       id: 3,
-      title: 'Influencer Marketing',
-      subtitle: 'Influencer Marketing',
-      description: [
-        'Influencer marketing',
-        'Brand collaboration',
-        'Organic UGC generation'
-      ],
-      icon: 'Users',
+      title: 'MARKETING',
+      subtitle: '',
+      description: ['Brand marketing through content, SNS, influencers, and livestream commerce'],
+      icon: 'Megaphone',
       color: 'from-kollab-black to-zinc-900'
     },
     {
       id: 4,
-      title: 'Public Relations',
-      subtitle: 'Public Relations',
-      description: [
-        'Offline PR assets',
-        'Media/retail references'
-      ],
-      icon: 'Megaphone',
+      title: 'GLOBAL DISTRIBUTION',
+      subtitle: '',
+      description: ['Support for overseas distribution and global market entry'],
+      icon: 'Globe',
       color: 'from-zinc-800 to-kollab-dark'
     },
     {
       id: 5,
-      title: 'US Export Opportunity',
-      subtitle: 'US Export Opportunity',
-      description: [
-        'U.S. export opportunities',
-        'LA pop-up store connection',
-        'LA retail entry',
-        'Major retail opportunities',
-        '(Ulta, Sephora, etc.)'
-      ],
-      icon: 'Plane',
+      title: 'TIKTOK SHOP',
+      subtitle: '',
+      description: ['Livestream commerce and global commerce operations'],
+      icon: 'Smartphone',
       color: 'from-kollab-red to-red-700'
+    },
+    {
+      id: 6,
+      title: 'BRAND CONSULTING',
+      subtitle: '',
+      description: ['Consulting on brand launch and growth strategy'],
+      icon: 'Briefcase',
+      color: 'from-kollab-black to-zinc-900'
     }
   ],
   hero: {
@@ -137,14 +123,14 @@ export const platformContentEn: PlatformContent = {
       {
         kind: 'lead',
         en:
-          'KOLLAB is a structured offline platform\n' +
+          'Kesta is a structured offline platform\n' +
           'designed to validate brands in Korea\n' +
           'and selectively connect them to pop-up opportunities in the United States.'
       },
       {
         kind: 'lead',
         ko:
-          'KOLLAB은\n' +
+          'Kesta는\n' +
           '한국 오프라인 시장에서 브랜드를 검증하고,\n' +
           '선별된 브랜드를 미국 팝업 기회로 연결하는\n' +
           '구조화된 오프라인 플랫폼입니다.'

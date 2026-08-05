@@ -23,13 +23,13 @@ export const splitTwoLines = (text: string): { a: string; b: string } => {
 };
 
 /**
- * 브랜드명 볼드 처리 (KOLLAB KOREA, KOLLAB LA)
+ * 브랜드명 볼드 처리 (Kesta, Kesta LA)
  */
 export const highlightBrandName = (text: string): Array<{ text: string; bold: boolean }> => {
-  const parts = text.split(/(KOLLAB KOREA|KOLLAB LA)/g);
+  const parts = text.split(/(Kesta LA|Kesta)/g);
   return parts.map((part) => ({
     text: part,
-    bold: part === 'KOLLAB KOREA' || part === 'KOLLAB LA'
+    bold: part === 'Kesta LA' || part === 'Kesta'
   }));
 };
 

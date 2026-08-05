@@ -1,7 +1,7 @@
 export const brandsContentKo = {
   hero: {
     titleLines: ['THE', 'BRANDS'],
-    deck: 'KOLLAB KOREA 협력사'
+    deck: 'Kesta 협력사'
   },
   grid: {
     items: ['MUZMAK', 'ARENCIA', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD']

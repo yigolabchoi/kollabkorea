@@ -25,9 +25,9 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             onClick={() => onNavigate?.('home')}
             className="cursor-pointer flex items-center bg-transparent border-none p-0"
           >
-            <img 
-              src="/assets/brands/kollab_logo_korea_white01.png" 
-              alt="KOLLAB KOREA" 
+            <img
+              src="/assets/brands/kesta_logo_black_white.png"
+              alt="Kesta"
               className="h-14 md:h-16 w-auto object-contain"
             />
           </button>
@@ -52,9 +52,9 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <p className="text-sm font-extrabold text-white uppercase tracking-[0.1em]">CONTACT INFORMATION</p>
           <div className="space-y-2 text-base font-semibold text-white uppercase leading-relaxed tracking-wide flex flex-col md:items-end">
             <p>AM 11:00 - PM 08:00</p>
-            <p>info@kollabkorea.com</p>
-            <a 
-              href="https://www.instagram.com/kollab_korea" 
+            <p>INFO@KESTA.KR</p>
+            <a
+              href="https://www.instagram.com/kesta_korea"
               target="_blank" 
               rel="noopener noreferrer"
               className="hover:opacity-50 transition-opacity pt-1 text-white"
@@ -65,7 +65,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         </div>
       </div>
       <div className="max-w-7xl mx-auto flex justify-center items-center pt-12 border-t border-[#EDEBE4]/15">
-        <p className="text-xs text-white tracking-[0.22em] uppercase font-extrabold text-center">© 2026 KOLLAB KOREA. ALL RIGHTS RESERVED.</p>
+        <p className="text-xs text-white tracking-[0.22em] uppercase font-extrabold text-center">© 2026 KESTA. ALL RIGHTS RESERVED.</p>
       </div>
     </footer>
   );

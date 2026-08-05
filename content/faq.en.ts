@@ -11,7 +11,7 @@ export const faqContentEn = {
     },
     {
       q: 'How are store operations and sales managed?',
-      a: 'KOLLAB KOREA handles 100% of store operations.\nBrands only need to supply products.'
+      a: 'Kesta handles 100% of store operations.\nBrands only need to supply products.'
     },
     {
       q: 'What is the contract period and the process to move in?',
@@ -19,7 +19,7 @@ export const faqContentEn = {
     },
     {
       q: 'How do marketing support and LA expansion opportunities work?',
-      a: 'Brands with strong performance at the Seongsu pop-up are prioritized for KOLLAB LA placement opportunities.'
+      a: 'Brands with strong performance at the Seongsu pop-up are prioritized for Kesta LA placement opportunities.'
     }
   ],
   bottom: {

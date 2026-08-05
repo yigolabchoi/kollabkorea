@@ -5,7 +5,7 @@
 
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Store, Video, Users, Megaphone, Plane } from 'lucide-react';
+import { Tent, Store, Megaphone, Globe, Smartphone, Briefcase } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { platformContentEn } from '../content/platform.en';
 import { platformContentKo } from '../content/platform.ko';
@@ -14,13 +14,14 @@ import CurvedPath from '../components/CurvedPath';
 import { containerVariants, itemVariants } from '../utils/animations';
 import type { StageData } from '../types';
 
-// Icon mapping
+// Icon mapping - monochrome, bold-stroke line icons (no color emoji)
 const iconMap = {
+  Tent,
   Store,
-  Video,
-  Users,
   Megaphone,
-  Plane
+  Globe,
+  Smartphone,
+  Briefcase
 };
 
 const Platform: React.FC = () => {
@@ -29,15 +30,15 @@ const Platform: React.FC = () => {
   const [mounted, setMounted] = useState(false);
   const journeyWrapRef = useRef<HTMLDivElement | null>(null);
   const [journeyAnchorPx, setJourneyAnchorPx] = useState<Array<{ x: number; y: number }>>([]);
-  
+
   // Convert content roadmap to StageData format
   const ROADMAP_DATA: StageData[] = content.roadmap.map((stage) => ({
     ...stage,
     Icon: iconMap[stage.icon as keyof typeof iconMap],
     position: { top: 60 } // Default position, will be overridden by curveYPositions
   }));
-  
-  // strict(noUncheckedIndexedAccess) 대응: roadmap은 5단계로 고정이므로 non-null assertion으로 타입만 확정
+
+  // strict(noUncheckedIndexedAccess) 대응: roadmap은 6단계로 고정이므로 non-null assertion으로 타입만 확정
   const getStage = (index: number): StageData => ROADMAP_DATA[index]!;
   // 점(원형)과 아이콘 박스(검정 사각) 사이 간격: "진짜 4px"을 보장하기 위해 SVG의 실제 렌더 좌표를 기준으로 계산
   const DOT_TO_ICON_GAP_PX = 50;
@@ -53,7 +54,7 @@ const Platform: React.FC = () => {
       const y = mt * mt * P0.y + 2 * mt * t * P1.y + t * t * P2.y;
       return { x, y };
     };
-    const T = [0, 0.25, 0.5, 0.75, 1] as const;
+    const T = [0, 0.2, 0.4, 0.6, 0.8, 1] as const;
     return { pointAtT, T };
   }, []);
 
@@ -61,7 +62,7 @@ const Platform: React.FC = () => {
     setMounted(true);
   }, []);
 
-  // SVG의 실제 렌더 좌표(CTM)를 사용해 5개 점의 픽셀 좌표를 계산 → 아이콘을 점 바로 아래(4px)에 배치
+  // SVG의 실제 렌더 좌표(CTM)를 사용해 6개 점의 픽셀 좌표를 계산 → 아이콘을 점 바로 아래(4px)에 배치
   useEffect(() => {
     const compute = () => {
       const wrapEl = journeyWrapRef.current;
@@ -98,109 +99,38 @@ const Platform: React.FC = () => {
 
   return (
     <div className="bg-white">
-      {/* Hero Section - KOLLAB SEONGSU */}
-      <section className="relative min-h-[80vh] md:min-h-[88vh] w-full overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <img
-            src="/assets/images/hero/platform_hero3.png"
-            alt="KOLLAB Seongsu Space"
-            className="w-full h-full object-cover"
-            loading="eager"
-          />
-          {/* Dark Overlay for better text readability */}
-          <div className="absolute inset-0 bg-black/30" />
-        </div>
-
-        {/* Hero Text */}
-        <div className="absolute inset-0 z-10 flex items-center justify-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-center px-6"
-          >
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-black text-white tracking-tighter leading-none uppercase">
-              KOLLAB<br />SEONGSU
-            </h1>
-          </motion.div>
-        </div>
+      {/* Hero Section - Kesta Logo */}
+      <section className="relative min-h-[80vh] md:min-h-[88vh] w-full overflow-hidden bg-white flex items-center justify-center">
+        <motion.img
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          src="/assets/brands/kesta_logo_red.png"
+          alt="Kesta"
+          className="h-14 md:h-16 lg:h-18 w-auto object-contain"
+        />
       </section>
 
-      {/* Seongsu-dong Introduction Section */}
-      <section className="bg-white py-20 md:py-32 px-6 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-          {/* Left Column - Titles */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="space-y-16"
-          >
-            {/* Main Title */}
-            <div>
-              <h2 className="text-2xl md:text-3xl font-black tracking-tight uppercase mb-8">
-                SEONGSU-DONG
-              </h2>
-              <div className="space-y-2 text-base md:text-lg font-medium">
-                <p>Industrial Heritage</p>
-                <p>Creative Transformation</p>
-                <p>Pop-up Culture Hub</p>
-              </div>
-            </div>
-
-            {/* Location */}
-            <div>
-              <h3 className="text-sm font-black tracking-[0.15em] uppercase mb-4">
-                POP-UP LOCATION
-              </h3>
-              <p className="text-base md:text-lg font-medium">
-                Seongsu-dong, Seoul
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Right Column - Description */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-8"
-          >
-            <p className="text-xl md:text-2xl font-semibold text-black leading-relaxed break-keep">
-              {language === 'ko'
-                ? '성수동은 서울의 산업적 기반 위에서 창의적인 문화가 가장 빠르게 재구성되고 있는 지역입니다.'
-                : 'Seongsu-dong is a district where creative culture is being reconstructed most rapidly on Seoul\'s industrial foundation.'}
-            </p>
-
-            <p className="text-base md:text-lg text-black/80 leading-relaxed break-keep">
-              {language === 'ko'
-                ? '과거 공장과 창고가 밀집했던 이곳은 이제 브랜드, 크리에이터, 소비자가 자연스럽게 교차하는 도시형 실험 공간으로 확장되었습니다.'
-                : 'What was once densely packed with factories and warehouses has now expanded into an urban experimental space where brands, creators, and consumers naturally intersect.'}
-            </p>
-
-            <p className="text-base md:text-lg text-black/80 leading-relaxed break-keep">
-              <span className="font-bold">KOLLAB KOREA</span>
-              {language === 'ko'
-                ? '의 성수 팝업은 이러한 성수동의 맥락 위에서 진행됩니다.'
-                : '\'s Seongsu pop-up takes place within this context of Seongsu-dong.'}
-            </p>
-
-            <p className="text-base md:text-lg text-black/80 leading-relaxed break-keep">
-              {language === 'ko'
-                ? '일시적인 전시가 아닌, 브랜드가 실제 고객과 오프라인에서 만나고 글로벌 확장을 앞두고 시장 반응을 검증하는 자리.'
-                : 'Not a temporary exhibition, but a place where brands meet real customers offline and verify market response ahead of global expansion.'}
-            </p>
-
-            <p className="text-base md:text-lg text-black/80 leading-relaxed break-keep">
-              {language === 'ko'
-                ? '성수라는 장소성과 KOLLAB의 큐레이션이 결합된 이 팝업은 브랜드가 다음 단계로 나아가기 전 가장 현실적인 접점을 제공합니다.'
-                : 'This pop-up, combining the sense of place of Seongsu with KOLLAB\'s curation, provides the most realistic touchpoint for brands before moving to the next stage.'}
-            </p>
-          </motion.div>
-        </div>
+      {/* Our Services Section */}
+      <section className="bg-white py-20 md:py-32 px-6 max-w-5xl mx-auto text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <h3 className="text-sm font-black tracking-[0.3em] uppercase text-kollab-red mb-6">
+            OUR SERVICES
+          </h3>
+          <h2 className="text-3xl md:text-5xl font-black text-black tracking-tight leading-tight mb-8 break-keep">
+            Empowering K-Brands Through Retail, Marketing & Global Expansion.
+          </h2>
+          <p className="text-base md:text-lg text-black/80 leading-relaxed break-keep max-w-3xl mx-auto">
+            {language === 'ko'
+              ? '리테일을 넘어 글로벌 성장까지. KESTA는 브랜드의 성장 단계에 맞춘 다양한 솔루션을 제공합니다.'
+              : 'KESTA provides integrated solutions that help Korean brands grow through curated retail experiences, strategic marketing, and global market expansion.'}
+          </p>
+        </motion.div>
       </section>
 
       {/* Brand Journey Section */}
@@ -215,13 +145,13 @@ const Platform: React.FC = () => {
         >
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-black tracking-tight leading-tight mb-6 break-keep">
             {language === 'ko'
-              ? 'KOLLAB의 브랜드 여정'
-              : 'KOLLAB Brand Journey'}
+              ? 'Kesta의 브랜드 여정'
+              : 'Kesta Brand Journey'}
           </h2>
           <p className="text-lg md:text-xl text-black/70 font-semibold max-w-3xl mx-auto break-keep">
             {language === 'ko'
-              ? '성수에서 시작해 LA로, 브랜드의 글로벌 확장을 위한 5단계 프로세스'
-              : 'From Seongsu to LA, a 5-step process for global brand expansion'}
+              ? '성수에서 시작해 LA로, 브랜드의 글로벌 확장을 위한 6단계 프로세스'
+              : 'From Seongsu to LA, a 6-step process for global brand expansion'}
           </p>
         </motion.div>
 
@@ -254,69 +184,82 @@ const Platform: React.FC = () => {
               Transform: translate(-50%, -50%) - 아이콘 중심을 곡선 좌표에 정렬
             */}
             
-            {/* Node 1 - 브랜드 액티베이션 */}
-            <div 
+            {/* Node 1 - Pop-up Store */}
+            <div
               className="absolute transition-all duration-700 delay-[0ms] hover:z-50 z-10"
-              style={{ 
+              style={{
                 left: journeyAnchorPx[0]?.x != null ? `${journeyAnchorPx[0].x}px` : '10%',
                 top: journeyAnchorPx[0]?.y != null ? `${journeyAnchorPx[0].y + DOT_TO_ICON_GAP_PX}px` : '35%',
                 transform: 'translateX(-50%)',
-                opacity: mounted ? 1 : 0 
+                opacity: mounted ? 1 : 0
               }}
             >
               <StageCard data={getStage(0)} isEven={false} />
-          </div>
+            </div>
 
-            {/* Node 2 - 콘텐츠 제작 */}
-            <div 
-              className="absolute transition-all duration-700 delay-[200ms] hover:z-50 z-10"
-              style={{ 
-                left: journeyAnchorPx[1]?.x != null ? `${journeyAnchorPx[1].x}px` : '30%',
-                top: journeyAnchorPx[1]?.y != null ? `${journeyAnchorPx[1].y + DOT_TO_ICON_GAP_PX}px` : '31.25%',
+            {/* Node 2 - Retail */}
+            <div
+              className="absolute transition-all duration-700 delay-[160ms] hover:z-50 z-10"
+              style={{
+                left: journeyAnchorPx[1]?.x != null ? `${journeyAnchorPx[1].x}px` : '26%',
+                top: journeyAnchorPx[1]?.y != null ? `${journeyAnchorPx[1].y + DOT_TO_ICON_GAP_PX}px` : '31.8%',
                 transform: 'translateX(-50%)',
-                opacity: mounted ? 1 : 0 
+                opacity: mounted ? 1 : 0
               }}
             >
               <StageCard data={getStage(1)} isEven={true} />
             </div>
 
-            {/* Node 3 (Peak) - 인플루언서 마케팅 */}
-            <div 
-              className="absolute transition-all duration-700 delay-[400ms] hover:z-50 z-10"
-              style={{ 
-                left: journeyAnchorPx[2]?.x != null ? `${journeyAnchorPx[2].x}px` : '50%',
-                top: journeyAnchorPx[2]?.y != null ? `${journeyAnchorPx[2].y + DOT_TO_ICON_GAP_PX}px` : '30%',
+            {/* Node 3 - Marketing */}
+            <div
+              className="absolute transition-all duration-700 delay-[320ms] hover:z-50 z-10"
+              style={{
+                left: journeyAnchorPx[2]?.x != null ? `${journeyAnchorPx[2].x}px` : '42%',
+                top: journeyAnchorPx[2]?.y != null ? `${journeyAnchorPx[2].y + DOT_TO_ICON_GAP_PX}px` : '30.2%',
                 transform: 'translateX(-50%)',
-                opacity: mounted ? 1 : 0 
+                opacity: mounted ? 1 : 0
               }}
             >
               <StageCard data={getStage(2)} isEven={false} />
-                      </div>
+            </div>
 
-            {/* Node 4 - PR */}
-            <div 
-              className="absolute transition-all duration-700 delay-[600ms] hover:z-50 z-10"
-              style={{ 
-                left: journeyAnchorPx[3]?.x != null ? `${journeyAnchorPx[3].x}px` : '70%',
-                top: journeyAnchorPx[3]?.y != null ? `${journeyAnchorPx[3].y + DOT_TO_ICON_GAP_PX}px` : '31.25%',
+            {/* Node 4 - Global Distribution */}
+            <div
+              className="absolute transition-all duration-700 delay-[480ms] hover:z-50 z-10"
+              style={{
+                left: journeyAnchorPx[3]?.x != null ? `${journeyAnchorPx[3].x}px` : '58%',
+                top: journeyAnchorPx[3]?.y != null ? `${journeyAnchorPx[3].y + DOT_TO_ICON_GAP_PX}px` : '30.2%',
                 transform: 'translateX(-50%)',
-                opacity: mounted ? 1 : 0 
+                opacity: mounted ? 1 : 0
               }}
             >
               <StageCard data={getStage(3)} isEven={true} />
-                    </div>
+            </div>
 
-            {/* Node 5 - 미국 수출 연결 기회 (Node 1과 정확히 동일한 높이) */}
-            <div 
-              className="absolute transition-all duration-700 delay-[800ms] hover:z-50 z-10"
-              style={{ 
-                left: journeyAnchorPx[4]?.x != null ? `${journeyAnchorPx[4].x}px` : '90%',
-                top: journeyAnchorPx[4]?.y != null ? `${journeyAnchorPx[4].y + DOT_TO_ICON_GAP_PX}px` : '35%',
+            {/* Node 5 - TikTok Shop */}
+            <div
+              className="absolute transition-all duration-700 delay-[640ms] hover:z-50 z-10"
+              style={{
+                left: journeyAnchorPx[4]?.x != null ? `${journeyAnchorPx[4].x}px` : '74%',
+                top: journeyAnchorPx[4]?.y != null ? `${journeyAnchorPx[4].y + DOT_TO_ICON_GAP_PX}px` : '31.8%',
                 transform: 'translateX(-50%)',
-                opacity: mounted ? 1 : 0 
+                opacity: mounted ? 1 : 0
               }}
-                        >
+            >
               <StageCard data={getStage(4)} isEven={false} />
+            </div>
+
+            {/* Node 6 - Brand Consulting (Node 1과 정확히 동일한 높이) */}
+            <div
+              className="absolute transition-all duration-700 delay-[800ms] hover:z-50 z-10"
+              style={{
+                left: journeyAnchorPx[5]?.x != null ? `${journeyAnchorPx[5].x}px` : '90%',
+                top: journeyAnchorPx[5]?.y != null ? `${journeyAnchorPx[5].y + DOT_TO_ICON_GAP_PX}px` : '35%',
+                transform: 'translateX(-50%)',
+                opacity: mounted ? 1 : 0
+              }}
+            >
+              <StageCard data={getStage(5)} isEven={true} />
             </div>
           </div>
 
@@ -336,25 +279,6 @@ const Platform: React.FC = () => {
               </motion.div>
             ))}
           </div>
-        </motion.div>
-
-        {/* Participation Notice */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-4 md:mt-6 p-12 border-2 border-kollab-black text-center max-w-4xl mx-auto bg-white"
-        >
-          <p className="text-base font-black tracking-[0.22em] mb-4 uppercase">
-            PARTICIPATION NOTICE
-          </p>
-          <p className="text-lg font-semibold opacity-80 max-w-2xl mx-auto tracking-wide">
-            {content.sections[1]?.notice?.[language] || (language === 'ko' 
-              ? '미국 팝업은 내부 심사 및 파트너 승인에 따라 진행됩니다.'
-              : 'U.S. pop-up participation is subject to internal review and partner approval.'
-            )}
-          </p>
         </motion.div>
       </section>
     </div>

@@ -3,18 +3,22 @@ import type { ContentBlock, ContentSection } from './contentBlocks';
 export interface AboutContent {
   pageLabel: string;
   hero: { title: string; deck: string };
-  topPrelude?: {
+  introSection?: {
     label: string;
-    introTitle: string;
-    introLines: string[];
-    bigTitle: string;
-    diagram: { src: string; alt: string };
+    paragraphs: string[];
   };
-  structureSection?: {
-    title: string;
-    leftNode: { title: string; subtitle: string };
-    rightNode: { title: string; subtitle: string };
-    lanes: { text: string }[];
+  visionSection?: {
+    label: string;
+    headline: string[];
+    paragraphs: string[];
+  };
+  whatWeDo?: {
+    label: string;
+    items: { title: string; desc: string }[];
+  };
+  whyKesta?: {
+    label: string;
+    items: { title: string; desc: string }[];
   };
   readyBanner?: {
     title: string;
@@ -26,40 +30,44 @@ export interface AboutContent {
 
 export const aboutContentEn: AboutContent = {
   pageLabel: 'ABOUT',
-  structureSection: {
-    title:
-      'KOLLAB KOREA is a global launch platform that connects brands, influencers, consumers, distributors, and retail into one structure.',
-    leftNode: { title: 'KOLLAB', subtitle: 'KOREA\nSeongsu' },
-    rightNode: { title: 'KOLLAB', subtitle: 'Downtown\nLA' },
-    lanes: [
-      { text: 'Brand onboarding (monthly)\nreasonable cost · products only' },
-      { text: 'KOLLAB retail platform\nintegrated offline execution structure' },
-      { text: 'Consumers · offline experience\nconversion · awareness' },
-      { text: 'Influencers · voluntary visits\ncontent · social spread' },
-      { text: 'Data & validation · sales data\ncontent performance · customer response' },
-      { text: 'Distribution & major retail opportunities\nKorea & U.S. validation and expansion' }
+  introSection: {
+    label: 'ABOUT KESTA',
+    paragraphs: [
+      'KESTA discovers outstanding Korean brands and connects offline retail, pop-up stores, marketing, and global distribution into one brand platform.',
+      'We do more than operate space — we help brands meet consumers, validate the market, and grow beyond Korea into global markets.'
+    ]
+  },
+  visionSection: {
+    label: 'OUR VISION',
+    headline: ['Beyond Retail.', 'Building Global Brand Opportunities.'],
+    paragraphs: [
+      'We don\'t just build space to sell products — we create opportunities for brands to meet new markets and new consumers.',
+      'As a growth partner for brands, KESTA builds the global expansion of Korean brands together.'
+    ]
+  },
+  whatWeDo: {
+    label: 'WHAT WE DO',
+    items: [
+      { title: 'POP-UP STORE', desc: 'Pop-up projects that maximize brand experience' },
+      { title: 'RETAIL', desc: 'Department store and offline retail distribution operations' },
+      { title: 'MARKETING', desc: 'Brand marketing through content, SNS, influencers, and livestream commerce' },
+      { title: 'GLOBAL DISTRIBUTION', desc: 'Support for overseas distribution and global market entry' },
+      { title: 'TIKTOK SHOP', desc: 'Livestream commerce and global commerce operations' },
+      { title: 'BRAND CONSULTING', desc: 'Consulting on brand launch and growth strategy' }
+    ]
+  },
+  whyKesta: {
+    label: 'WHY KESTA',
+    items: [
+      { title: 'Curated Brand Selection', desc: 'A carefully curated selection of brands' },
+      { title: 'Proven Retail Experience', desc: 'Hands-on, execution-driven offline operating experience' },
+      { title: 'Global Expansion', desc: 'Connecting brands from Korea to overseas markets' },
+      { title: 'Marketing & Commerce', desc: 'Designing marketing and sales together' }
     ]
   },
   readyBanner: {
     title: 'READY TO GO\nGLOBAL?',
-    line: 'Promote your brand with KOLLAB KOREA.'
-  },
-  topPrelude: {
-    label: 'ABOUT',
-    introTitle: 'KOLLAB KOREA',
-    introLines: [
-      'selects and operates Korean beauty, fashion, lifestyle, F&B, and goods brands,',
-      'connecting validated brands to successful U.S. market entry.',
-      'We curate brands, operate spaces with efficiency,',
-      'and create offline growth opportunities across markets.',
-      'Starting in Korea, we move together toward the world.'
-    ],
-    bigTitle:
-      'KOLLAB KOREA is a global launch platform that connects brands, influencers, consumers, distributors, and retail into one structure.',
-    diagram: {
-      src: '/assets/photos/shoots/about-diagram.png',
-      alt: 'KOLLAB Korea cross-border platform structure diagram'
-    }
+    line: 'Promote your brand with Kesta.'
   },
   hero: {
     title: 'Born in Los Angeles.\nOperated in Korea.',
@@ -67,10 +75,10 @@ export const aboutContentEn: AboutContent = {
   },
   gallery: {
     images: [
-      { src: '/assets/photos/shoots/design_guide02.png', alt: 'KOLLAB LA reference 01' },
-      { src: '/assets/photos/shoots/design_guide03.png', alt: 'KOLLAB LA reference 02' },
-      { src: '/assets/images/hero/kollab-hero-bg-01.png', alt: 'KOLLAB reference 03' },
-      { src: '/assets/images/hero/kollab-hero-bg-02.png', alt: 'KOLLAB reference 04' }
+      { src: '/assets/photos/shoots/design_guide02.png', alt: 'Kesta LA reference 01' },
+      { src: '/assets/photos/shoots/design_guide03.png', alt: 'Kesta LA reference 02' },
+      { src: '/assets/images/hero/kollab-hero-bg-01.png', alt: 'Kesta reference 03' },
+      { src: '/assets/images/hero/kollab-hero-bg-02.png', alt: 'Kesta reference 04' }
     ]
   },
   sections: [
@@ -91,12 +99,12 @@ export const aboutContentEn: AboutContent = {
         {
           kind: 'lead',
           en:
-            'KOLLAB is an LA-born,\nexperience-driven curation retail platform.'
+            'Kesta is an LA-born,\nexperience-driven curation retail platform.'
         },
         {
           kind: 'body',
           en:
-            'KOLLAB KOREA selects and operates brands in the Korean market\nand connects validated brands to U.S. pop-up opportunities.'
+            'Kesta selects and operates brands in the Korean market\nand connects validated brands to U.S. pop-up opportunities.'
         }
       ]
     },
@@ -113,7 +121,7 @@ export const aboutContentEn: AboutContent = {
       blocks: [
         {
           en:
-            'KOLLAB does not offer consulting or one-time promotions.\nWe provide a structure where brands can validate → grow → expand\nthrough real retail experience.'
+            'Kesta does not offer consulting or one-time promotions.\nWe provide a structure where brands can validate → grow → expand\nthrough real retail experience.'
         }
       ]
     },
@@ -136,7 +144,7 @@ export const aboutContentEn: AboutContent = {
       id: 'our-role',
       title: 'Our Role',
       blocks: [
-        { kind: 'quote', en: 'KOLLAB is not an agency.\nKOLLAB is a platform.' },
+        { kind: 'quote', en: 'Kesta is not an agency.\nKesta is a platform.' },
         {
           en:
             'We curate brands, operate spaces,\nand create offline growth opportunities across markets.'

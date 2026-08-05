@@ -22,8 +22,8 @@ const getChatSession = (): Chat => {
   chatSession = ai.chats.create({
     model: 'gemini-3-flash-preview',
     config: {
-      systemInstruction: `You are 'K-ASSIST', the AI Concierge for KOLLAB. 
-      KOLLAB is a curated offline retail platform connecting Korean brands to the U.S. market.
+      systemInstruction: `You are 'K-ASSIST', the AI Concierge for Kesta. 
+      Kesta is a curated offline retail platform connecting Korean brands to the U.S. market.
       
       Tone: Professional, ambitious, efficient, and forward-thinking. 
       Always respond in ALL CAPS for brand names and section titles.

@@ -1,9 +1,9 @@
 export const brandsContentEn = {
   hero: {
     titleLines: ['THE', 'BRANDS'],
-    deck: 'KOLLAB KOREA Partners'
+    deck: 'Kesta Partners'
   },
-  laPartnersTitle: 'KOLLAB LA Partners',
+  laPartnersTitle: 'Kesta LA Partners',
   grid: {
     items: ['MUZMAK', 'ARENCIA', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD', 'TBD']
   }

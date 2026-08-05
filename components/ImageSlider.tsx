@@ -18,22 +18,15 @@ interface ImageSliderProps {
  */
 
 const KR_POPUP_IMAGES = [
-  '/assets/photos/kr-popup/optimized/WHK06093_re2.jpg',
-  '/assets/photos/kr-popup/optimized/WHK06122_re.jpg',
-  '/assets/photos/kr-popup/optimized/WHK06128_re.jpg',
-  '/assets/photos/kr-popup/optimized/WHK06131_re.jpg',
-  '/assets/photos/kr-popup/optimized/WHK06159_re.jpg',
-  '/assets/photos/kr-popup/optimized/WHK06186_re.jpg',
-  '/assets/photos/kr-popup/optimized/WHK06467_re.jpg',
-  '/assets/photos/kr-popup/optimized/WHK06486_re.jpg',
-  '/assets/photos/kr-popup/optimized/WHK06507_re.jpg',
-  '/assets/photos/kr-popup/optimized/WHK06520_re.jpg',
-  '/assets/photos/kr-popup/optimized/WHK06542_re.jpg',
-  '/assets/photos/kr-popup/optimized/WHK06612_re.jpg',
-  '/assets/photos/kr-popup/optimized/WHK06627_re.jpg',
-  '/assets/photos/kr-popup/optimized/WHK06631_re.jpg',
-  '/assets/photos/kr-popup/optimized/WHK06675_re.jpg',
-  '/assets/photos/kr-popup/optimized/WHK06685_re.jpg',
+  '/assets/photos/home-hero/home-hero-01.jpg',
+  '/assets/photos/home-hero/home-hero-02.jpg',
+  '/assets/photos/home-hero/home-hero-03.jpg',
+  '/assets/photos/home-hero/home-hero-04.jpg',
+  '/assets/photos/home-hero/home-hero-05.jpg',
+  '/assets/photos/home-hero/home-hero-06.jpg',
+  '/assets/photos/home-hero/home-hero-07.jpg',
+  '/assets/photos/home-hero/home-hero-08.jpg',
+  '/assets/photos/home-hero/home-hero-09.jpg',
 ];
 
 const ImageSlider: React.FC<ImageSliderProps> = ({ triggerMarkerRef }) => {
@@ -78,7 +71,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ triggerMarkerRef }) => {
             >
               <img
                 src={src}
-                alt={`KOLLAB KR popup moment ${(index % images.length) + 1}`}
+                alt={`Kesta KR popup moment ${(index % images.length) + 1}`}
                 className="w-auto h-full rounded-2xl object-cover bg-transparent"
                 loading={index < 6 ? 'eager' : 'lazy'}
                 decoding="async"

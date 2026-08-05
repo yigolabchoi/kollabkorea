@@ -1,7 +1,7 @@
 export const contactContentKo = {
   hero: {
-    title: 'JOIN\nKOLLAB',
-    deck: '콜랩과 함께 글로벌 시장으로 진출하세요'
+    title: 'JOIN\nKESTA',
+    deck: '케스타와 함께 글로벌 시장으로 진출하세요'
   },
   mechanismSection: {
     title: '',
@@ -24,7 +24,7 @@ export const contactContentKo = {
     title: 'SPACE STRUCTURE',
     subtitleEn: 'FLEXIBLE SPACES BASED ON BRAND GOALS',
     subtitleKo: '브랜드 목표에 맞춘 유연한 공간 구조',
-    rowLabels: ['전업 위치 /\n미디어 플레이', '제품 판매 운영', '콘텐츠 제공', '인플루언서 노출', 'Kollab SNS 노출', 'Monthly 콜랩 인플루언서 이벤트 노출', '미국 팝업 & 리테일샵 동시 입점 신청'],
+    rowLabels: ['전업 위치 /\n미디어 플레이', '제품 판매 운영', '콘텐츠 제공', '인플루언서 노출', 'Kesta SNS 노출', 'Monthly 케스타 인플루언서 이벤트 노출', '미국 팝업 & 리테일샵 동시 입점 신청'],
     tiers: [
       {
         name: 'BASIC',
@@ -63,7 +63,7 @@ export const contactContentKo = {
         '3. Contract signing and preparation',
         '4. Brand launch and marketing start'
       ],
-      noteKo: '※ BASIC 플랜은 2주 또는 1개월 단위로, STANDARD와 PREMIUM 플랜은 1개월 단위로 운영됩니다. 제품 판매 및 재고 관리는 콜랩코리아에서 진행합니다.',
+      noteKo: '※ BASIC 플랜은 2주 또는 1개월 단위로, STANDARD와 PREMIUM 플랜은 1개월 단위로 운영됩니다. 제품 판매 및 재고 관리는 케스타에서 진행합니다.',
       noteEn: '※ BASIC plan operates on a 2-week or 1-month basis, while STANDARD and PREMIUM plans operate monthly. Product sales and inventory management are handled directly by the brand.'
     }
   },
@@ -79,10 +79,10 @@ export const contactContentKo = {
   contactInfo: {
     title: 'Contact Information',
     emailLabel: 'EMAIL',
-    email: 'info@kollabkorea.com',
+    email: 'INFO@KESTA.KR',
     instagramLabel: 'INSTAGRAM',
-    instagram: '@kollab_korea',
-    instagramUrl: 'https://instagram.com/kollab_korea'
+    instagram: '@kesta_korea',
+    instagramUrl: 'https://instagram.com/kesta_korea'
   },
   form: {
     title: '입점 문의 작성하기',
@@ -108,11 +108,11 @@ export const contactContentKo = {
   },
   applyLeft: {
     copy:
-      '콜랩은 명확한 브랜드 아이덴티티와 오프라인 고객 경험을 준비한 브랜드를 환영합니다.\n\n글로벌 확장을 앞두고 검증과 지속 가능한 성장을 함께 고민하는 브랜드의 참여를 기다립니다.'
+      '케스타는 명확한 브랜드 아이덴티티와 오프라인 고객 경험을 준비한 브랜드를 환영합니다.\n\n글로벌 확장을 앞두고 검증과 지속 가능한 성장을 함께 고민하는 브랜드의 참여를 기다립니다.'
   },
   banner: {
     title: 'READY TO GO\nGLOBAL?',
-    line: 'KOLLAB SEOUL과 함께 당신의 브랜드를 알리세요.'
+    line: 'Kesta와 함께 당신의 브랜드를 알리세요.'
   }
 };
 

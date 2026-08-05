@@ -295,7 +295,7 @@ const Contact: React.FC = () => {
                 value={form.brandName}
                 onChange={(ev) => onChangeField('brandName', ev.target.value)}
                 className="w-full border-b-2 border-black/20 py-2.5 focus:outline-none focus:border-black text-lg font-semibold tracking-normal bg-transparent"
-                placeholder="Kollab Beauty"
+                placeholder="Kesta Beauty"
                 autoComplete="organization"
                 aria-invalid={Boolean(errors.brandName)}
                 aria-describedby={errors.brandName ? 'brandName-error' : undefined}

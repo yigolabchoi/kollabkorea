@@ -1,7 +1,7 @@
 export const contactContentEn = {
   hero: {
-    title: 'JOIN\nKOLLAB',
-    deck: 'Join KOLLAB to expand your brand globally'
+    title: 'JOIN\nKESTA',
+    deck: 'Join Kesta to expand your brand globally'
   },
   mechanismSection: {
     title: '',
@@ -24,7 +24,7 @@ export const contactContentEn = {
     title: 'SPACE STRUCTURE',
     subtitleEn: 'FLEXIBLE SPACES BASED ON BRAND GOALS',
     subtitleKo: '브랜드 목표에 맞춘 유연한 공간 구조',
-    rowLabels: ['Display Zone /\nMedia Play', 'Product Sales', 'Content Support', 'Influencer Exposure', 'Kollab SNS Exposure', 'Monthly Kollab Influencer Event', 'U.S. Pop-up & Retail Shop Application'],
+    rowLabels: ['Display Zone /\nMedia Play', 'Product Sales', 'Content Support', 'Influencer Exposure', 'Kesta SNS Exposure', 'Monthly Kesta Influencer Event', 'U.S. Pop-up & Retail Shop Application'],
     tiers: [
       {
         name: 'BASIC',
@@ -63,8 +63,8 @@ export const contactContentEn = {
         '3. Contract signing and preparation',
         '4. Brand launch and marketing start'
       ],
-      noteKo: '※ BASIC 플랜은 2주 또는 1개월 단위로, STANDARD와 PREMIUM 플랜은 1개월 단위로 운영됩니다. 제품 판매 및 재고 관리는 콜랩코리아에서 진행합니다.',
-      noteEn: '※ BASIC plan operates on a 2-week or 1-month basis, while STANDARD and PREMIUM plans operate monthly. Product sales and inventory management are handled by KOLLAB KOREA.'
+      noteKo: '※ BASIC 플랜은 2주 또는 1개월 단위로, STANDARD와 PREMIUM 플랜은 1개월 단위로 운영됩니다. 제품 판매 및 재고 관리는 케스타에서 진행합니다.',
+      noteEn: '※ BASIC plan operates on a 2-week or 1-month basis, while STANDARD and PREMIUM plans operate monthly. Product sales and inventory management are handled by Kesta.'
     }
   },
   whoShouldApply: {
@@ -79,10 +79,10 @@ export const contactContentEn = {
   contactInfo: {
     title: 'Contact Information',
     emailLabel: 'EMAIL',
-    email: 'info@kollabkorea.com',
+    email: 'INFO@KESTA.KR',
     instagramLabel: 'INSTAGRAM',
-    instagram: '@kollab_korea',
-    instagramUrl: 'https://instagram.com/kollab_korea'
+    instagram: '@kesta_korea',
+    instagramUrl: 'https://instagram.com/kesta_korea'
   },
   form: {
     title: 'Submit Your Application',
@@ -108,11 +108,11 @@ export const contactContentEn = {
   },
   applyLeft: {
     copy:
-      'KOLLAB welcomes brands with a clear identity and readiness for offline customer experience.\nAs you prepare for global expansion, we look forward to brands that think with us about validation\nand sustainable growth.'
+      'Kesta welcomes brands with a clear identity and readiness for offline customer experience.\nAs you prepare for global expansion, we look forward to brands that think with us about validation\nand sustainable growth.'
   },
   banner: {
     title: 'READY TO GO\nGLOBAL?',
-    line: 'Promote your brand with KOLLAB SEOUL.'
+    line: 'Promote your brand with Kesta.'
   }
 };
 

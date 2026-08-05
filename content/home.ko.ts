@@ -1,17 +1,14 @@
 export const homeContentKo = {
   badge: 'SEOUL × LOS ANGELES',
   hero: {
-    title: 'From Korea\nto the U.S.',
-    deck: 'Where Brands Meet Physical Experience'
+    title: 'Connecting Korean Brands to the World.',
+    deck: ''
   },
   intro: {
     lines: [
-      'A CURATED OFFLINE RETAIL PLATFORM',
-      'THAT CONNECTS BRANDS FROM KOREA',
-      'TO REAL-WORLD POP-UP EXPERIENCES',
-      'IN THE UNITED STATES.'
+      'POP-UP · RETAIL · MARKETING · GLOBAL DISTRIBUTION'
     ],
-    deck: '한국 오프라인 리테일을 시작으로\n미국 팝업까지 연결되는 크로스보더 브랜드 플랫폼'
+    deck: '팝업 · 리테일 · 마케팅 · 글로벌 유통'
   },
   why: [
     {

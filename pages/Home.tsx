@@ -9,7 +9,6 @@ import { useLanguage } from '../LanguageContext';
 import { homeContentEn } from '../content/home.en';
 import { homeContentKo } from '../content/home.ko';
 import ImageSlider from '../components/ImageSlider';
-import { hasKorean } from '../utils/text';
 import type { PageProps } from '../types';
 
 const Home: React.FC<PageProps> = ({ onNavigate, onHeaderVisibilityChange }) => {
@@ -25,7 +24,6 @@ const Home: React.FC<PageProps> = ({ onNavigate, onHeaderVisibilityChange }) => 
   const curatedBgRef = useRef<HTMLDivElement | null>(null);
   const curatedBgRafRef = useRef<number | null>(null);
   const curatedBgLastYPxRef = useRef<number>(Number.NaN);
-  const heroDeckHasKo = hasKorean(content.hero.deck);
 
   const CURATED_BG_MOTION = {
     // 기존 “공간감” 구조 복구: 스크롤에 따라 배경이 아래로 이동
@@ -169,7 +167,7 @@ const Home: React.FC<PageProps> = ({ onNavigate, onHeaderVisibilityChange }) => 
         className={`relative overflow-hidden z-0 min-h-[80vh] md:min-h-[88vh] flex items-center ${
           isGrayBg ? 'bg-zinc-700' : 'bg-white'
         }`}
-        aria-label="KOLLAB hero section"
+        aria-label="Kesta hero section"
       >
         <video
           autoPlay
@@ -201,47 +199,14 @@ const Home: React.FC<PageProps> = ({ onNavigate, onHeaderVisibilityChange }) => 
           transition={{ duration: 0.2, ease: 'easeOut' }}
           className="z-10 max-w-6xl w-full mx-auto px-6 text-center flex flex-col items-center py-20 md:py-24 -mt-28 md:-mt-40"
         >
-          <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: 0.05, ease: 'easeOut' }}
-            className="bg-black text-[#EDEBE4] px-2 py-0.5 font-semibold tracking-[0.42em] uppercase text-sm mb-4 md:mb-6"
-          >
-            {content.badge}
-          </motion.div>
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.1, ease: 'easeOut' }}
-            className="font-brand text-[7vw] md:text-[5.5vw] leading-[1.1] font-extrabold tracking-tight text-kollab-red mb-4 uppercase"
+            className="font-brand text-[7vw] md:text-[3.4vw] leading-[1.2] font-extrabold tracking-tight text-kollab-red break-keep"
           >
-            {content.hero.title.split('\n').map((l, i) => (<span key={i}>{l}{i === 0 ? <br /> : null}</span>))}
+            {content.hero.title}
           </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: 0.15, ease: 'easeOut' }}
-            className={`text-[3.6vw] md:text-[2vw] font-semibold text-kollab-red opacity-80 whitespace-nowrap ${
-              heroDeckHasKo ? 'tracking-[0.008em] break-keep' : 'tracking-[0.015em]'
-            }`}
-          >
-            {content.hero.deck}
-          </motion.p>
-
-          {/* GRAND OPEN 날짜 */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3, ease: 'easeOut' }}
-            className="mt-12 md:mt-16"
-          >
-            <p className="text-xs md:text-sm font-black tracking-[0.3em] text-kollab-red uppercase mb-2 md:mb-3">
-              GRAND OPEN
-            </p>
-            <p className="text-2xl md:text-4xl font-black tracking-tight text-kollab-red">
-              2026.03.13
-            </p>
-          </motion.div>
         </motion.div>
       </section>
 

@@ -95,7 +95,7 @@ const Brands: React.FC<BrandsProps> = () => {
           {renderBrandNameBold(language === 'ko' ? 'Kesta 파트너사' : 'Kesta Partners')}
         </motion.p>
 
-        <div className="grid grid-cols-7 gap-2">
+        <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-7 gap-2">
           {companyLogos.map((item, index) => (
             <div
               key={`company-${index}`}
@@ -126,7 +126,7 @@ const Brands: React.FC<BrandsProps> = () => {
           {renderBrandNameBold(language === 'ko' ? '공식파트너 KOLLAB LA' : 'Official Partners KOLLAB LA')}
         </motion.p>
 
-        <div className="grid grid-cols-7 gap-2">
+        <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-7 gap-2">
           {laPartners.map((item, index) => (
             <div
               key={`la-${index}`}

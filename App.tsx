@@ -23,7 +23,7 @@ import type { PageId } from './types';
 
 // 홈페이지 리뉴얼 작업 중 임시로 전체 사이트를 Coming Soon 스플래시로 대체.
 // 리뉴얼이 끝나면 이 플래그를 false로 되돌리면 기존 사이트가 그대로 복귀됨.
-const MAINTENANCE_MODE = true;
+const MAINTENANCE_MODE = false;
 
 // /preview 서브 링크로 접속하면 Coming Soon을 건너뛰고 기존 사이트를 볼 수 있음.
 // 세션 동안(탭을 닫기 전까지) 유지되므로 이후 내부 페이지 이동도 정상 동작함.

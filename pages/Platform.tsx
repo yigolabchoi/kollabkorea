@@ -99,15 +99,15 @@ const Platform: React.FC = () => {
 
   return (
     <div className="bg-white">
-      {/* Hero Section - Kesta Logo */}
-      <section className="relative min-h-[80vh] md:min-h-[88vh] w-full overflow-hidden bg-white flex items-center justify-center">
+      {/* Hero Section - Kesta Wordmark on Red */}
+      <section className="relative h-screen w-full overflow-hidden bg-kollab-red flex items-center justify-center">
         <motion.img
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          src="/assets/brands/kesta_logo_red.png"
+          src="/assets/brands/kesta_wordmark_gray.png"
           alt="Kesta"
-          className="h-14 md:h-16 lg:h-18 w-auto object-contain"
+          className="w-[30%] h-auto object-contain"
         />
       </section>
 

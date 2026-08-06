@@ -41,42 +41,29 @@ const Brands: React.FC<BrandsProps> = () => {
     name: `Brand ${i + 1}`
   })).filter((_, i) => !excludedLogos.includes(i + 1));
 
-  // KOLLAB KOREA company logos
+  // Kesta 파트너사 company logos (grayscale set)
   const companyLogos: BrandPartner[] = [
-    { logo: '/assets/brands/company/0062_로고.png', name: '0062' },
-    { logo: '/assets/brands/company/더마룹_OGET-LOGO.png', name: 'OGET' },
-    { logo: '/assets/brands/company/마이쇼퍼_로고투명.png', name: '마이쇼퍼' },
-    { logo: '/assets/brands/company/메리고라운드_오드실크_로고.png', name: '오드실크' },
-    { logo: '/assets/brands/company/미미스컴퍼니_Logo.png', name: '미미스컴퍼니' },
-    { logo: '/assets/brands/company/채널브릿지_로고.png', name: '채널브릿지' },
-    { logo: '/assets/brands/company/그라스마티네_로고.png', name: '그라스마티네' },
-    { logo: '/assets/brands/company/깜빡_logo.png', name: '깜빡' },
-    { logo: '/assets/brands/company/우아하게_로고.png', name: '우아하게' },
-    { logo: '/assets/brands/company/더포춘_픽셀퓨어-로고(말풍선).png', name: '픽셀퓨어' },
-    { logo: '/assets/brands/company/웰비즈_로고.png', name: '웰비즈' },
-    { logo: '/assets/brands/company/로고PNG_넥스텝_포뉴레브.png', name: '포뉴레브' },
-    { logo: '/assets/brands/company/[팔색미인]로고.png', name: '팔색미인' },
-    { logo: '/assets/brands/company/BTS-l-STONEHENgE-LOGO.png', name: 'STONEHENGE' },
-    { logo: '/assets/brands/company/코리아나_로고.png', name: '코리아나' },
-    { logo: '/assets/brands/company/muzmak_logo_01.png', name: 'muzmak' },
-    { logo: '/assets/brands/company/olliwello_2.png', name: 'olliwello' },
-    { logo: '/assets/brands/company/(1).png', name: 'Brand 1' },
-    { logo: '/assets/brands/company/(2).png', name: 'Brand 2' },
-    { logo: '/assets/brands/company/(3).png', name: 'Brand 3' },
-    { logo: '/assets/brands/company/(4).png', name: 'Brand 4' },
-    { logo: '/assets/brands/company/(5).png', name: 'Brand 5' },
-    { logo: '/assets/brands/company/(6).png', name: 'Brand 6' },
-    { logo: '/assets/brands/company/(7).png', name: 'Brand 7' },
-    { logo: '/assets/brands/company/(8).png', name: 'Brand 8' },
-    { logo: '/assets/brands/company/(9).png', name: 'Brand 9' },
-    { logo: '/assets/brands/company/(10).png', name: 'Brand 10' },
-    { logo: '/assets/brands/company/(11).png', name: 'Brand 11' },
-    { logo: '/assets/brands/company/(12).png', name: 'Brand 12' },
-    { logo: '/assets/brands/company/(13).png', name: 'Brand 13' },
-    { logo: '/assets/brands/company/(14).png', name: 'Brand 14' },
-    { logo: '/assets/brands/company/(15).png', name: 'Brand 15' },
-    { logo: '/assets/brands/company/(16).png', name: 'Brand 16' },
-    { logo: '/assets/brands/company/(17).png', name: 'Brand 17' },
+    { logo: '/assets/brands/company-gray/COUCOU.png', name: 'COUCOU' },
+    { logo: '/assets/brands/company-gray/Raume_1.png', name: 'Raume' },
+    { logo: '/assets/brands/company-gray/merypure_1.png', name: 'merypure' },
+    { logo: '/assets/brands/company-gray/merypure_2.png', name: 'merypure' },
+    { logo: '/assets/brands/company-gray/닥터상떼.png', name: '닥터상떼' },
+    { logo: '/assets/brands/company-gray/더현대서울.png', name: '더현대서울' },
+    { logo: '/assets/brands/company-gray/두타몰.png', name: '두타몰' },
+    { logo: '/assets/brands/company-gray/디아더무드_1.png', name: '디아더무드' },
+    { logo: '/assets/brands/company-gray/디아더무드_2.png', name: '디아더무드' },
+    { logo: '/assets/brands/company-gray/디웨더.png', name: '디웨더' },
+    { logo: '/assets/brands/company-gray/라라레서피.png', name: '라라레서피' },
+    { logo: '/assets/brands/company-gray/립힙.png', name: '립힙' },
+    { logo: '/assets/brands/company-gray/메디펫케어.png', name: '메디펫케어' },
+    { logo: '/assets/brands/company-gray/모에뜨.png', name: '모에뜨' },
+    { logo: '/assets/brands/company-gray/뮤즈마크_.png', name: '뮤즈마크' },
+    { logo: '/assets/brands/company-gray/믹순.png', name: '믹순' },
+    { logo: '/assets/brands/company-gray/이엘뷰티바이오.png', name: '이엘뷰티바이오' },
+    { logo: '/assets/brands/company-gray/인요에.png', name: '인요에' },
+    { logo: '/assets/brands/company-gray/토코보.png', name: '토코보' },
+    { logo: '/assets/brands/company-gray/프레비츠_1.png', name: '프레비츠' },
+    { logo: '/assets/brands/company-gray/프레비츠_2.png', name: '프레비츠' },
   ];
 
   return (
@@ -108,11 +95,11 @@ const Brands: React.FC<BrandsProps> = () => {
           {renderBrandNameBold(language === 'ko' ? 'Kesta 파트너사' : 'Kesta Partners')}
         </motion.p>
 
-        <div className="flex flex-wrap items-center justify-center gap-2">
+        <div className="grid grid-cols-7 gap-2">
           {companyLogos.map((item, index) => (
             <div
               key={`company-${index}`}
-              className="flex-shrink-0 w-[68px] h-[68px] sm:w-[82px] sm:h-[82px] md:w-[96px] md:h-[96px] bg-white flex items-center justify-center"
+              className="aspect-square bg-white flex items-center justify-center"
             >
               <img
                 src={item.logo}
@@ -136,14 +123,14 @@ const Brands: React.FC<BrandsProps> = () => {
             language === 'ko' ? 'tracking-[0.01em] break-keep' : 'tracking-[0.02em]'
           }`}
         >
-          {renderBrandNameBold(language === 'ko' ? 'Kesta 공식 파트너' : 'Kesta Official Partners')}
+          {renderBrandNameBold(language === 'ko' ? '공식파트너 KOLLAB LA' : 'Official Partners KOLLAB LA')}
         </motion.p>
 
-        <div className="flex flex-wrap items-center justify-center gap-2">
+        <div className="grid grid-cols-7 gap-2">
           {laPartners.map((item, index) => (
             <div
               key={`la-${index}`}
-              className="flex-shrink-0 w-[62px] h-[62px] sm:w-[74px] sm:h-[74px] md:w-[88px] md:h-[88px] bg-white flex items-center justify-center"
+              className="aspect-square bg-white flex items-center justify-center"
             >
               <img
                 src={item.logo}

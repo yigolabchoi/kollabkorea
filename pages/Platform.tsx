@@ -150,8 +150,8 @@ const Platform: React.FC = () => {
           </h2>
           <p className="text-lg md:text-xl text-black/70 font-semibold max-w-3xl mx-auto break-keep">
             {language === 'ko'
-              ? '성수에서 시작해 LA로, 브랜드의 글로벌 확장을 위한 6단계 프로세스'
-              : 'From Seongsu to LA, a 6-step process for global brand expansion'}
+              ? '브랜드의 글로벌 확장을 위한 6단계 프로세스'
+              : 'A 6-step process for global brand expansion'}
           </p>
         </motion.div>
 

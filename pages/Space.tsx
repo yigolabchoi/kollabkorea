@@ -13,11 +13,22 @@ interface Project {
   category: string;
   dateKo: string;
   dateEn: string;
-  status?: string;
   images: { src: string; alt: string }[];
 }
 
 const PROJECTS: Project[] = [
+  {
+    id: 'gimpo',
+    title: 'HYUNDAI PREMIUM OUTLET',
+    category: 'K-LAND Campaign',
+    dateKo: '2026.09.10 - 2026.09.22',
+    dateEn: '2026.09.10 - 2026.09.22',
+    images: [
+      { src: '/assets/photos/projects/gimpo-popup-poster.png', alt: 'Hyundai Premium Outlet Gimpo Kesta pop-up poster' },
+      { src: '/assets/photos/projects/gimpo-popup-visitors.jpeg', alt: 'Visitors at the Hyundai Premium Outlet Gimpo Kesta pop-up' },
+      { src: '/assets/photos/projects/gimpo-popup-night.jpeg', alt: 'Hyundai Premium Outlet Gimpo Kesta pop-up at night' }
+    ]
+  },
   {
     id: 'hyundai-seoul',
     title: 'THE HYUNDAI SEOUL',
@@ -28,18 +39,6 @@ const PROJECTS: Project[] = [
       { src: '/assets/photos/projects/hyundai-seoul-1.jpeg', alt: 'THE HYUNDAI SEOUL pop-up rendering' },
       { src: '/assets/photos/projects/hyundai-seoul-2.jpeg', alt: 'THE HYUNDAI SEOUL grand open poster' },
       { src: '/assets/photos/projects/hyundai-seoul-3.jpeg', alt: 'THE HYUNDAI SEOUL brand lineup' }
-    ]
-  },
-  {
-    id: 'gimpo',
-    title: 'HYUNDAI PREMIUM OUTLET',
-    category: 'K-LAND Campaign',
-    dateKo: '2026.09.10 - 2026.09.22',
-    dateEn: '2026.09.10 - 2026.09.22',
-    status: 'COMING SOON',
-    images: [
-      { src: '/assets/photos/projects/gimpo-1.jpeg', alt: 'Hyundai Premium Outlet Kesta storefront' },
-      { src: '/assets/photos/projects/gimpo-2.jpeg', alt: 'Hyundai Premium Outlet Gimpo courtyard' }
     ]
   },
   {
@@ -121,11 +120,6 @@ const Space: React.FC = () => {
                 <span className="text-sm md:text-base font-semibold text-black/60 tracking-wide">
                   {language === 'ko' ? project.dateKo : project.dateEn}
                 </span>
-                {project.status && (
-                  <span className="px-3 py-1 text-xs font-black uppercase tracking-[0.15em] bg-kollab-red text-white">
-                    {project.status}
-                  </span>
-                )}
               </div>
             </div>
           </motion.section>

@@ -1,0 +1,17 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "KestaBucketDeployment",
+      "Effect": "Allow",
+      "Action": ["s3:ListBucket", "s3:GetBucketLocation", "s3:GetBucketWebsite", "s3:PutBucketWebsite"],
+      "Resource": "arn:aws:s3:::kesta.kr"
+    },
+    {
+      "Sid": "KestaWebsiteObjects",
+      "Effect": "Allow",
+      "Action": ["s3:GetObject", "s3:PutObject", "s3:PutObjectAcl", "s3:DeleteObject"],
+      "Resource": "arn:aws:s3:::kesta.kr/*"
+    }
+  ]
+}

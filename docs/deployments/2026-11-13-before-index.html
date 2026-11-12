@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth; height: 100%;">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KESTA | Global K-Brand Curation Platform</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="K-브랜드를 세계와 연결하는 플랫폼 | 팝업 · 리테일 · 마케팅 · 글로벌 유통 | Pop-up · Retail · Marketing · Global Distribution" />
+    <meta name="keywords" content="KESTA, 케스타, KOLLAB, 콜랩코리아, K-브랜드, 글로벌 진출, Korean brands, 팝업, 리테일, 마케팅, 글로벌 유통" />
+    <meta name="author" content="KESTA" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="Korean, English" />
+    <link rel="canonical" href="https://kesta.kr/" />
+
+    <!-- Open Graph (Facebook, LinkedIn) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="KESTA" />
+    <meta property="og:title" content="KESTA | Global K-Brand Curation Platform" />
+    <meta property="og:description" content="K-브랜드를 세계와 연결하는 플랫폼 | 팝업 · 리테일 · 마케팅 · 글로벌 유통 | Pop-up · Retail · Marketing · Global Distribution" />
+    <meta property="og:url" content="https://kesta.kr/" />
+    <meta property="og:image" content="https://kesta.kr/assets/kestaLogo.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="KESTA | Global K-Brand Curation Platform" />
+    <meta name="twitter:description" content="K-브랜드를 세계와 연결하는 플랫폼 | 팝업 · 리테일 · 마케팅 · 글로벌 유통 | Pop-up · Retail · Marketing · Global Distribution" />
+    <meta name="twitter:image" content="https://kesta.kr/assets/kestaLogo.png" />
+    
+    <!-- Google Search Console Verification (나중에 추가 예정) -->
+    <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE" />
+    
+    <!-- Naver Search Advisor Verification -->
+    <meta name="naver-site-verification" content="c94126d3064c530715ac9eb47040c60c13f71c2c" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#dc0000" />
+    
+    <link rel="preconnect" href="https://use.typekit.net" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/images/hero/kollab-hero-bg-01.png"
+    />
+    <script>
+      (function(d) {
+        var config = {
+          kitId: 'bev8awd',
+          scriptTimeout: 3000,
+          async: true
+        },
+        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+      })(document);
+    </script>
+    <style>
+      html {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        overscroll-behavior: none;
+      }
+      
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100%;
+        font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+        background-color: #ffffff;
+        color: #000000;
+        letter-spacing: 0.015em;
+        overscroll-behavior: none;
+      }
+
+      /* Hard fallback: ensure brand-red utilities always work */
+      .bg-kollab-red { background-color: #dc0000 !important; }
+      .text-kollab-red { color: #dc0000; }
+      .border-kollab-red { border-color: #dc0000 !important; }
+      .hover\:bg-kollab-red:hover { background-color: #dc0000 !important; }
+      .bg-kollab-silver { background-color: #c0c0c0 !important; }
+      .bg-kollab-beige { background-color: #e4e0db !important; }
+
+      /* React 루트 및 앱 래퍼가 레이아웃을 방해하지 않도록 설정 */
+      #root {
+        display: contents;
+      }
+      
+      /* Header / Footer branding font (Typekit) */
+      .font-brand { 
+        font-family: "sofia-pro", sans-serif; 
+      }
+
+      /*
+        NOTE: 첫 진입에서 웹폰트(Typekit/Inter) 로드 타이밍에 따라 폰트가 '교체'되어 보이는(FOUT/CLS) 문제가 생길 수 있습니다.
+        디자인을 바꾸지 않고 이를 방지하기 위해, 앱 부트스트랩에서 폰트 준비(또는 타임아웃)까지 body를 숨겼다가 페이드인합니다.
+        (구현: index.tsx)
+      */
+      html.app-loading body {
+        opacity: 0;
+      }
+      html.app-ready body {
+        opacity: 1;
+        transition: opacity 700ms ease-out;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html.app-ready body {
+          transition: none;
+        }
+      }
+
+      .snap-section {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .free-scroll-section {
+        min-height: 100vh;
+        position: relative;
+      }
+
+      ::-webkit-scrollbar { display: none; }
+      * { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+  <script type="module" crossorigin src="/assets/index-DAF53iIU.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-cd1LbDIj.css">
+</head>
+  <body>
+    <div id="root"></div>
+</body>
+</html>
